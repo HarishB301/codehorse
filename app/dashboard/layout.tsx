@@ -3,7 +3,7 @@ import {SidebarProvider,SidebarTrigger,SidebarInset} from '@/components/ui/sideb
 import AppSidebar from '@/components/app-sidebar'
 import {Separator} from '@/components/ui/separator'
 import { requireAuth } from '@/module/auth/utils/auth-utils'
-
+import { Toaster } from '@/components/ui/sonner'
 const DashboardLayout = async(
     {children}:{children:React.ReactNode}
 ) => {
@@ -21,7 +21,7 @@ const DashboardLayout = async(
 
              <main className='flex-1 overflow-auto p-4 md:p-6'>
                
-
+                 <Toaster/>
                  {children}
               
              </main>

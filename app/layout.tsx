@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-providers"
 import { TooltipProvider } from "@/components/ui/tooltip";
+import QueryProvider from "@/components/providers/query-provider";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,7 +29,8 @@ export default function RootLayout({
       lang="en" suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body>
+      <body suppressHydrationWarning>
+        <QueryProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -38,6 +40,7 @@ export default function RootLayout({
           {children}
            </TooltipProvider>
         </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );
